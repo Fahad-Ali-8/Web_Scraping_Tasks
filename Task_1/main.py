@@ -13,7 +13,7 @@ url = "https://remoteok.com/"
 options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")
 
-
+# Setting up selenium
 service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=options)
 wait = WebDriverWait(driver, 15)
@@ -34,8 +34,10 @@ print("parsing jobs with beautifulsoup")
 soup = BeautifulSoup(driver.page_source,"lxml")
 driver.quit()
 
-# # finding all job titles
+# creating an empty list so that later i can append all data
 jobs = []
+
+# finding all the data
 job_rows = soup.select("tr.job")
 for job in job_rows:
     title = job.select_one("h2[itemprop='title']")
@@ -50,6 +52,7 @@ for job in job_rows:
     job_link = "https://remoteok.com/" +job_link if job_link else "N/A"
     tags = tags if tags else "N/A"
 
+    # only printing jobs that are related to software engineering
     if "Software" in title:
         jobs.append({
         "job_title"     :title,   
@@ -59,7 +62,7 @@ for job in job_rows:
         "tags"             :tags
         })
 
-# ─── STEP 5: SAVE TO CSV ─────────────────────────────
+# saving data to csv
 if jobs:
     df = pd.DataFrame(jobs)
     df.to_csv("Task_1/jobs.csv", index=False, encoding="utf-8")

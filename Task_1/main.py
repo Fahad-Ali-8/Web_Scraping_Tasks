@@ -9,9 +9,9 @@ import time
 import pandas as pd
 
 url = "https://remoteok.com/"
-
 options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")
+options.add_argument("--headless")
 
 # Setting up selenium
 service = Service(ChromeDriverManager().install())
@@ -44,7 +44,7 @@ for job in job_rows:
     name = job.select_one("span.companyLink")
     location = job.select_one("div.location")
     job_link = job.get("data-href")
-    tags = [tag.text.strip() for tag in job.select("span.tag")]
+    tags = [tag.text.strip() for tag in job.select("div.tag h3")]
 
     title = title.text.strip() if title else "N/A"
     name = name.text.strip() if name else "N/A"
@@ -65,8 +65,8 @@ for job in job_rows:
 # saving data to csv
 if jobs:
     df = pd.DataFrame(jobs)
-    df.to_csv("Task_1/jobs.csv", index=False, encoding="utf-8")
-    print(f"\n Scraped {len(jobs)} jobs successfully!")
+    df.to_csv("Task_1/jobs.csv", index=False, encoding="utf-8-sig")
+    print(f"Scraped {len(jobs)} jobs successfully!")
     print("Saved to jobs.csv")
     # print(df.head())
 else:

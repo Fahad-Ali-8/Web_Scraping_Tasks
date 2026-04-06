@@ -55,7 +55,7 @@ for job in job_rows:
     # only printing jobs that are related to software engineering
     if "Software" in title:
         jobs.append({
-        "job_title"     :title,   
+        "job_title"        :title,   
         "compnay name"     :name,
         "compnay location" :location,
         "job link"         :job_link,

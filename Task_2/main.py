@@ -10,94 +10,70 @@ import time
 import pandas as pd
 from urllib.parse import urljoin
 
-headers = {"User-Agent": "Mozilla/5.0"}
+headers = {"User-Agent": "Chrome/5.0"}
 url = "https://books.toscrape.com/"
 options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")
 options.add_argument("--headless")
 
-# Setting up selenium
 service = Service(ChromeDriverManager().install())
-driver = webdriver.Chrome(service=service , options=options)
+driver = webdriver.Chrome(service=service, options=options)
 wait = WebDriverWait(driver, 15)
 
-# Opening Website
 print("Opening website")
 driver.get(url)
-# time.sleep(5)
-
 
 books = []
 while True:
-    # Wait for page to load
     wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "li.col-xs-6")))
-
     print("Scraping page:", driver.current_url)
 
-    # Parsing with beautifulsoup
-    print("Parcing with beautifulsoup")
-    soup = BeautifulSoup(driver.page_source,"lxml")
-
-    # current_page_url = driver.current_url
-    # finding all elements
+    soup = BeautifulSoup(driver.page_source, "lxml")
     book_rows = soup.select("li.col-xs-6")
-    for book in book_rows:
-        title = book.select_one("h3 > a")["title"]
-        price = book.select_one("p.price_color").text
 
-        # Rating
-        rating_word = book.select_one("p.star-rating")["class"][1]
-        rating_map = {
-            "One": 1, "Two": 2, "Three": 3, "Four": 4,"Five": 5,
-        }
-        rating = rating_map[rating_word]
+    for book in book_rows:
+        title        = book.select_one("h3 > a")["title"]
+        price        = book.select_one("p.price_color").text
+        rating_word  = book.select_one("p.star-rating")["class"][1]
+        rating_map   = {"One": 1, "Two": 2, "Three": 3, "Four": 4, "Five": 5}
+        rating       = rating_map[rating_word]
         availability = book.select_one("p.instock").get_text(strip=True)
 
-        # Finding book category
-        # book_link = book.select_one("h3 > a")["href"]
-        # book_url = "https://books.toscrape.com/" + book_link.replace("../", "") 
         book_link = book.select_one("h3 > a")["href"].strip()
-        book_url = urljoin(driver.current_url, book_link)  
-        response = requests.get(book_url, headers=headers)
-        detail_soup = BeautifulSoup(response.text, "lxml")
-        # breadcrumbs = detail_soup.select("ul.breadcrumb li")
+        book_url  = urljoin(driver.current_url, book_link)
 
-        # Get category safely
         try:
-            response = requests.get(book_url, headers=headers, timeout=10)
+            response    = requests.get(book_url, headers=headers, timeout=10)
             detail_soup = BeautifulSoup(response.text, "lxml")
             breadcrumbs = detail_soup.select("ul.breadcrumb li")
-            category = breadcrumbs[2].get_text(strip=True) if len(breadcrumbs) > 2 else "Unknown"
+            category    = breadcrumbs[2].get_text(strip=True) if len(breadcrumbs) > 2 else "Unknown"
         except:
             category = "Unknown"
 
-
         books.append({
-            "Title"         :title,
-            "Price"         :price,
-            "Rating"        :rating,
-            "Availibility"  :availability,
-            "Category"      :category,
-            "Link"          :book_url
+            "Title"        : title,
+            "Price"        : price,
+            "Rating"       : rating,
+            "Availability" : availability,
+            "Category"     : category,
+            "Link"         : book_url
         })
 
-    # Go to next page if exists
     next_buttons = driver.find_elements(By.XPATH, "//li[@class='next']/a")
     if next_buttons:
         next_buttons[0].click()
-        wait.until(EC.staleness_of(next_buttons[0]))  # wait until the old page is gone
+        wait.until(EC.staleness_of(next_buttons[0]))
         time.sleep(1)
     else:
         print("Last page reached")
         break
 
-# saving data to csv
+driver.quit()
+
 if books:
     df = pd.DataFrame(books)
-    df.to_csv("Task_2/Books.csv", index=False, encoding="utf-8-sig")
+    df.to_csv("Books.csv", index=False, encoding="utf-8-sig")
     print(f"Scraped {len(books)} books successfully!")
     print("Saved to Books.csv")
-    # print(df.head())
 else:
     print("No books found!")
-

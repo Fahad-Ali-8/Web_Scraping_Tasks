@@ -1,11 +1,16 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
+import requests
 import time
 import pandas as pd
+from urllib.parse import urljoin
 
+headers = {"User-Agent": "Mozilla/5.0"}
 url = "https://books.toscrape.com/"
 options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")
@@ -14,44 +19,85 @@ options.add_argument("--headless")
 # Setting up selenium
 service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service , options=options)
-wait = (driver,15)
+wait = WebDriverWait(driver, 15)
 
 # Opening Website
 print("Opening website")
 driver.get(url)
-time.sleep(5)
+# time.sleep(5)
 
-# Parsing with beautifulsoup
-print("Parcing with beautifulsoup")
-soup = BeautifulSoup(driver.page_source,"lxml")
-# driver.quit()
 
-# finding all elements
-book_rows = soup.select("li.col-xs-6")
-for book in book_rows:
-    title = book.select_one("h3 > a")
-    price = book.select_one("div > p")
+books = []
+while True:
+    # Wait for page to load
+    wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "li.col-xs-6")))
 
-    # Rating
-    rating_word = book.select_one("p.star-rating")["class"][1]
-    rating_map = {
-        "One": 1, "Two": 2, "Three": 3, "Four": 4,"Five": 5,
-    }
-    rating = rating_map[rating_word]
-    avalability = book.select_one("p.instock")
+    print("Scraping page:", driver.current_url)
 
-    # Finding book category
-    book_link = book.select_one("h3 > a")["href"]
-    book_url = "https://books.toscrape.com/" + book_link 
-    driver.get(book_url)
-    detail_soup = BeautifulSoup(driver.page_source, "lxml")
-    category = detail_soup.select("ul.breadcrumb li")[2].text.strip()
-    
-    print(title.text.strip())
-    print(price.text.strip())
-    print(rating)
-    print(avalability.text.strip())
-    print(category)
-    print(book_url)
-    print("")
-driver.quit()
+    # Parsing with beautifulsoup
+    print("Parcing with beautifulsoup")
+    soup = BeautifulSoup(driver.page_source,"lxml")
+
+    # current_page_url = driver.current_url
+    # finding all elements
+    book_rows = soup.select("li.col-xs-6")
+    for book in book_rows:
+        title = book.select_one("h3 > a")["title"]
+        price = book.select_one("p.price_color").text
+
+        # Rating
+        rating_word = book.select_one("p.star-rating")["class"][1]
+        rating_map = {
+            "One": 1, "Two": 2, "Three": 3, "Four": 4,"Five": 5,
+        }
+        rating = rating_map[rating_word]
+        availability = book.select_one("p.instock").get_text(strip=True)
+
+        # Finding book category
+        # book_link = book.select_one("h3 > a")["href"]
+        # book_url = "https://books.toscrape.com/" + book_link.replace("../", "") 
+        book_link = book.select_one("h3 > a")["href"].strip()
+        book_url = urljoin(driver.current_url, book_link)  
+        response = requests.get(book_url, headers=headers)
+        detail_soup = BeautifulSoup(response.text, "lxml")
+        # breadcrumbs = detail_soup.select("ul.breadcrumb li")
+
+        # Get category safely
+        try:
+            response = requests.get(book_url, headers=headers, timeout=10)
+            detail_soup = BeautifulSoup(response.text, "lxml")
+            breadcrumbs = detail_soup.select("ul.breadcrumb li")
+            category = breadcrumbs[2].get_text(strip=True) if len(breadcrumbs) > 2 else "Unknown"
+        except:
+            category = "Unknown"
+
+
+        books.append({
+            "Title"         :title,
+            "Price"         :price,
+            "Rating"        :rating,
+            "Availibility"  :availability,
+            "Category"      :category,
+            "Link"          :book_url
+        })
+
+    # Go to next page if exists
+    next_buttons = driver.find_elements(By.XPATH, "//li[@class='next']/a")
+    if next_buttons:
+        next_buttons[0].click()
+        wait.until(EC.staleness_of(next_buttons[0]))  # wait until the old page is gone
+        time.sleep(1)
+    else:
+        print("Last page reached")
+        break
+
+# saving data to csv
+if books:
+    df = pd.DataFrame(books)
+    df.to_csv("Task_2/Books.csv", index=False, encoding="utf-8-sig")
+    print(f"Scraped {len(books)} books successfully!")
+    print("Saved to Books.csv")
+    # print(df.head())
+else:
+    print("No books found!")
+

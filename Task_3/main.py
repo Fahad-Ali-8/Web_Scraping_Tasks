@@ -32,7 +32,6 @@ login = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@data-qa='log
 login.click()
 
 
-
 # clicking products button
 products_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//a[@href='/products']")))
 products_btn.click()
@@ -44,7 +43,7 @@ for link in product_links:
     full_url = urljoin("https://automationexercise.com", link["href"])
     urls.append(full_url)
 
-print(urls)
+print(f"Found {len(urls)} products")
 
 
 products = []
@@ -52,25 +51,31 @@ products = []
 for url in urls:
     driver.get(url)
     wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, ".product-information")))  # wait for product info to load
-    # time.sleep(2)  # let the page load
     
     soup = BeautifulSoup(driver.page_source, "html.parser")
     
-    print(f"Visiting: {url}")
     name = soup.select_one(".product-information h2")
     price = soup.select_one(".product-information span span")
     category = soup.select_one(".product-information p")
     
+
     name2 = name.text.strip()
     price2 = price.text.strip() 
-    category2 = category.text.strip() if category else "N/A"
-    # products.append({
-    #     "name": name,
-    #     "price": price,
-    #     "category": category
-    # })
+    category2 = category.text.strip().replace("Category: ", "")  if category else "N/A"
+
+    products.append({
+        "name": name2,
+        "price": price2,
+        "category": category2
+    })
     
-    print(f"Scraped: {name2} | {price2} | {category2}")
+
+# export to CSV
+df = pd.DataFrame(products)
+df.to_csv("Task_3/products.csv", index=False)
+print("Saved to products.csv!")
+
 time.sleep(5)
+driver.quit()
 
 

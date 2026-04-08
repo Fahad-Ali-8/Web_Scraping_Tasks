@@ -114,3 +114,6 @@ def main():
         print("Done! All products saved to products.csv")
 
 
+if __name__ == "__main__":
+    main()
+

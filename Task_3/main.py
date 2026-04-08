@@ -18,7 +18,7 @@ PASSWORD = "Assassin_888"
 OUTPUT_FILE = "Task_3/products.csv"
 HEADERS = ["name", "price", "category"]
 
-# driver setup
+# DRIVER SETUP
 def init_driver():
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome()
@@ -32,13 +32,13 @@ def init_csv(filepath):
         writer.writeheader()
     print(f"CSV initialized: {filepath}")
 
-# append one product to csv 
+# APPEND ONE PRODUCT TO CSV 
 def save_product(filepath, product):
     with open(filepath, "a", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=HEADERS)
         writer.writerow(product)
 
-# login
+# LOGIN
 def login(driver, email, password):
     wait = WebDriverWait(driver, 10)
     driver.get(f"{BASE_URL}/login")
@@ -57,7 +57,7 @@ def login(driver, email, password):
     print("Logged in successfully")
 
 
-# ─── COLLECT ALL PRODUCT URLS ─────────────────────────────
+# COLLECT ALL PRODUCT URLS 
 def get_product_urls(driver):
     wait = WebDriverWait(driver, 10)
 
@@ -75,7 +75,7 @@ def get_product_urls(driver):
     return urls
 
    
-# ─── SCRAPE A SINGLE PRODUCT PAGE ─────────────────────────
+# SCRAPE A SINGLE PRODUCT PAGE 
 def scrape_product(driver, url):
     wait = WebDriverWait(driver, 10)
     driver.get(url)
@@ -94,7 +94,7 @@ def scrape_product(driver, url):
     }
     
 
-# ─── MAIN ─────────────────────────────────────────────────
+# MAIN
 def main():
     driver = init_driver()
     init_csv(OUTPUT_FILE)

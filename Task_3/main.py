@@ -10,6 +10,12 @@ import time
 import pandas as pd
 from urllib.parse import urljoin
 
+# ─── CONFIG ───────────────────────────────────────────────
+BASE_URL = "https://automationexercise.com"
+EMAIL = "assassin41@gmail.com"
+PASSWORD = "Assassin_888"
+OUTPUT_FILE = "Task_3/products.csv"
+HEADERS = ["name", "price", "category"]
 
 driver = webdriver.Chrome()
 driver.get("https://automationexercise.com/login")

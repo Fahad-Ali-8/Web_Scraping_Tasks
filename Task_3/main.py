@@ -10,16 +10,19 @@ import time
 import pandas as pd
 from urllib.parse import urljoin
 
-# ─── CONFIG ───────────────────────────────────────────────
+# config
 BASE_URL = "https://automationexercise.com"
 EMAIL = "assassin41@gmail.com"
 PASSWORD = "Assassin_888"
 OUTPUT_FILE = "Task_3/products.csv"
 HEADERS = ["name", "price", "category"]
 
-driver = webdriver.Chrome()
-driver.get("https://automationexercise.com/login")
-headers = {"User-Agent": "Chrome/5.0"}
+# driver setup
+def init_driver():
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome()
+    return driver
+
 # Checking if the websites loads or not
 assert "Automation Exercise" in driver.title
 print("Home page is visible successfully")

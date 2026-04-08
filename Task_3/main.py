@@ -73,8 +73,48 @@ def get_product_urls(driver):
     print(f"Found {len(urls)} products")
     return urls
 
+   
+# ─── SCRAPE A SINGLE PRODUCT PAGE ─────────────────────────
+def scrape_product(driver, url):
+    wait = WebDriverWait(driver, 10)
+    driver.get(url)
+    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, ".product-information")))
+
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+
+    name = soup.select_one(".product-information h2")
+    price = soup.select_one(".product-information span span")
+    category = soup.select_one(".product-information p")
+
+    return {
+        "name": name.text.strip() if name else "N/A",
+        "price": price.text.strip() if price else "N/A",
+        "category": category.text.strip().replace("Category: ", "") if category else "N/A"
+    }
     
 
+# ─── MAIN ─────────────────────────────────────────────────
+def main():
+    driver = init_driver()
+    init_csv(OUTPUT_FILE)
+
+    try:
+        login(driver, EMAIL, PASSWORD)
+        urls = get_product_urls(driver)
+
+        for i, url in enumerate(urls, 1):
+            product = scrape_product(driver, url)
+            save_product(OUTPUT_FILE, product)
+            print(f"[{i}/{len(urls)}] Saved: {product['name']}")
+
+    finally:
+        time.sleep(5)
+        driver.quit()
+        print("Done! All products saved to products.csv")
+
+
+if __name__ == "__main__":
+    main()
 # Checking if the websites loads or not
 assert "Automation Exercise" in driver.title
 print("Home page is visible successfully")

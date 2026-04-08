@@ -23,6 +23,14 @@ def init_driver():
     driver = webdriver.Chrome()
     return driver
 
+# WRITE CSV HEADERS UPFRONT (chunk-saving)
+def init_csv(filepath):
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    with open(filepath, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=HEADERS)
+        writer.writeheader()
+    print(f"CSV initialized: {filepath}")
+
 # Checking if the websites loads or not
 assert "Automation Exercise" in driver.title
 print("Home page is visible successfully")

@@ -56,6 +56,22 @@ def login(driver, email, password):
     print("Logged in successfully")
 
 
+# ─── COLLECT ALL PRODUCT URLS ─────────────────────────────
+def get_product_urls(driver):
+    wait = WebDriverWait(driver, 10)
+
+    products_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//a[@href='/products']")))
+    products_btn.click()
+
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+    product_links = soup.select("a[href^='/product_details/']")
+
+    urls = []
+    for link in product_links:
+        full_url = urljoin(BASE_URL, link["href"])
+        urls.append(full_url)
+    print(f"Found {len(urls)} products")
+    return urls
 
     
 

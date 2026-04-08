@@ -31,6 +31,34 @@ def init_csv(filepath):
         writer.writeheader()
     print(f"CSV initialized: {filepath}")
 
+# append one product to csv 
+def save_product(filepath, product):
+    with open(filepath, "a", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=HEADERS)
+        writer.writerow(product)
+
+# login
+def login(driver, email, password):
+    wait = WebDriverWait(driver, 10)
+    driver.get(f"{BASE_URL}/login")
+
+    assert "Automation Exercise" in driver.title    
+    print("Home page is visible successfully")
+
+    email_field = wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@type='email']")))
+    email_field.send_keys(email)
+
+    password_field = wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@data-qa='login-password']")))
+    password_field.send_keys(password)
+
+    login_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@data-qa='login-button']")))
+    login_btn.click()
+    print("Logged in successfully")
+
+
+
+    
+
 # Checking if the websites loads or not
 assert "Automation Exercise" in driver.title
 print("Home page is visible successfully")

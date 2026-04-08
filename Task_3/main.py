@@ -7,7 +7,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 import requests
 import time
-import pandas as pd
+import os
+import csv
 from urllib.parse import urljoin
 
 # config

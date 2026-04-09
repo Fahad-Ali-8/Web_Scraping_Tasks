@@ -5,16 +5,17 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
-import requests
+from dotenv import load_dotenv
 import time
 import os
 import csv
 from urllib.parse import urljoin
 
 # config
+load_dotenv() 
 BASE_URL = "https://automationexercise.com"
-EMAIL = "assassin41@gmail.com"
-PASSWORD = "Assassin_888"
+EMAIL    = os.getenv("EMAIL")
+PASSWORD = os.getenv("PASSWORD")
 OUTPUT_FILE = "Task_3/products.csv"
 HEADERS = ["name", "price", "category"]
 

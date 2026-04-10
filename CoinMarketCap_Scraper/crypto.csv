@@ -1,1 +1,502 @@
-name,icon,price,24h'%'change,marketcap
+name                                        , icon      , price       , 24h'%'change, marketcap
+CoinMarketCap 20 Index DTF                  , CMC20     , $145.89     , 0.69%       , $15.16M
+Bitcoin                                     , BTC       , "$71,445.82", 0.54%       , $1.43T
+Ethereum                                    , ETH       , "$2,178.60" , 0.32%       , $263.45B
+Tether                                      , USDT      , $0.9999     , 0.00%       , $184.1B
+XRP                                         , XRP       , $1.33       , 0.22%       , $82.22B
+BNB                                         , BNB       , $600.60     , 0.10%       , $81.9B
+USDC                                        , USDC      , $0.9996     , 0.00%       , $78.37B
+Solana                                      , SOL       , $83.12      , 0.11%       , $47.73B
+TRON                                        , TRX       , $0.3198     , 0.20%       , $30.31B
+Dogecoin                                    , DOGE      , $0.09238    , 0.15%       , $15.66B
+Hyperliquid                                 , HYPE      , $40.08      , 0.05%       , $10.26B
+UNUS SED LEO                                , LEO       , $10.10      , 0.03%       , $9.3B
+Cardano                                     , ADA       , $0.2505     , 0.11%       , $9.05B
+Bitcoin Cash                                , BCH       , $437.41     , 0.39%       , $8.76B
+Chainlink                                   , LINK      , $8.89       , 0.02%       , $6.47B
+Monero                                      , XMR       , $346.40     , 0.64%       , $6.39B
+Zcash                                       , ZEC       , $373.76     , 0.90%       , $6.21B
+Canton                                      , CC        , $0.1529     , 0.99%       , $5.86B
+Ethena USDe                                 , USDe      , $0.9994     , 0.00%       , $5.83B
+Dai                                         , DAI       , $0.9998     , 0.00%       , $5.36B
+Stellar                                     , XLM       , $0.1550     , 0.55%       , $5.13B
+Litecoin                                    , LTC       , $54.32      , 0.27%       , $4.19B
+World Liberty Financial USD                 , USD1      , $0.9992     , 0.01%       , $4.19B
+Avalanche                                   , AVAX      , $9.29       , 0.15%       , $4.01B
+PayPal USD                                  , PYUSD     , $0.9997     , 0.01%       , $3.98B
+Hedera                                      , HBAR      , $0.08821    , 0.33%       , $3.82B
+Sui                                         , SUI       , $0.9314     , 0.49%       , $3.68B
+Shiba Inu                                   , SHIB      , $0.055892   , 0.08%       , $3.47B
+MemeCore                                    , M         , $2.63       , 0.41%       , $3.39B
+Toncoin                                     , TON       , $1.28       , 0.67%       , $3.17B
+Cronos                                      , CRO       , $0.06934    , 0.13%       , $2.94B
+Bittensor                                   , TAO       , $264.23     , 0.34%       , $2.84B
+World Liberty Financial                     , WLFI      , $0.08351    , 1.95%       , $2.65B
+Tether Gold                                 , XAUt      , "$4,728.53" , 0.05%       , $2.65B
+PAX Gold                                    , PAXG      , "$4,733.86" , 0.05%       , $2.43B
+Mantle                                      , MNT       , $0.6647     , 0.44%       , $2.18B
+Polkadot                                    , DOT       , $1.28       , 0.03%       , $2.16B
+Global Dollar                               , USDG      , $0.9999     , 0.02%       , $2.06B
+Uniswap                                     , UNI       , $3.11       , 0.33%       , $1.97B
+Sky                                         , SKY       , $0.07731    , 0.73%       , $1.79B
+OKB                                         , OKB       , $83.91      , 0.02%       , $1.76B
+NEAR Protocol                               , NEAR      , $1.35       , 0.19%       , $1.75B
+Pi                                          , PI        , $0.1670     , 0.17%       , $1.69B
+Aster                                       , ASTER     , $0.6630     , 0.02%       , $1.64B
+USDD                                        , USDD      , $0.9998     , 0.01%       , $1.53B
+Pepe                                        , PEPE      , $0.053484   , 0.71%       , $1.44B
+Aave                                        , AAVE      , $89.67      , 0.35%       , $1.38B
+Ripple USD                                  , RLUSD     , $0.9997     , 0.01%       , $1.38B
+Internet Computer                           , ICP       , $2.48       , 1.39%       , $1.37B
+Bitget Token                                , BGB       , $1.93       , 0.28%       , $1.35B
+Ethereum Classic                            , ETC       , $8.46       , 0.34%       , $1.32B
+Ondo                                        , ONDO      , $0.2524     , 0.44%       , $1.23B
+KuCoin Token                                , KCS       , $8.40       , 0.20%       , $1.13B
+Render                                      , RENDER    , $2.04       , 0.06%       , $1.06B
+United Stables                              , U         , $0.9992     , 0.04%       , $1.03B
+Algorand                                    , ALGO      , $0.1105     , 0.28%       , $984.04M
+Cosmos                                      , ATOM      , $1.82       , 0.06%       , $916.2M
+Quant                                       , QNT       , $75.62      , 0.76%       , $913.03M
+Polygon (prev. MATIC)                       , POL       , $0.08603    , 0.24%       , $913.94M
+Worldcoin                                   , WLD       , $0.2689     , 0.00%       , $876.44M
+Kaspa                                       , KAS       , $0.03181    , 0.39%       , $870.27M
+Ethena                                      , ENA       , $0.09553    , 1.85%       , $836.79M
+GateToken                                   , GT        , $6.51       , 0.51%       , $749.96M
+DeXe                                        , DEXE      , $8.91       , 0.69%       , $746.47M
+Morpho                                      , MORPHO    , $1.81       , 0.49%       , $736.29M
+Filecoin                                    , FIL       , $0.8973     , 0.26%       , $690.42M
+Midnight                                    , NIGHT     , $0.04062    , 0.10%       , $674.63M
+OFFICIAL TRUMP                              , TRUMP     , $2.87       , 0.43%       , $669.1M
+Aptos                                       , APT       , $0.8348     , 0.38%       , $663.4M
+Arbitrum                                    , ARB       , $0.1095     , 0.42%       , $661.68M
+Flare                                       , FLR       , $0.007566   , 0.52%       , $647.78M
+LayerZero                                   , ZRO       , $1.97       , 0.72%       , $622.14M
+JUST                                        , JST       , $0.06964    , 0.02%       , $613.97M
+XDC Network                                 , XDC       , $0.03066    , 0.32%       , $611.51M
+Pump.fun                                    , PUMP      , $0.001810   , 0.31%       , $601.2M
+VeChain                                     , VET       , $0.007006   , 0.39%       , $602.48M
+Nexo                                        , NEXO      , $0.8817     , 0.61%       , $569.72M
+Stable                                      , STABLE    , $0.02645    , 1.99%       , $572.87M
+Jupiter                                     , JUP       , $0.1603     , 0.36%       , $569.21M
+Artificial Superintelligence Alliance       , FET       , $0.2364     , 0.54%       , $534.07M
+Bonk                                        , BONK      , $0.055855   , 0.12%       , $515.27M
+siren                                       , SIREN     , $0.7061     , 0.65%       , $513.75M
+Dash                                        , DASH      , $39.35      , 3.04%       , $498.06M
+TrueUSD                                     , TUSD      , $0.9993     , 0.02%       , $494.18M
+PancakeSwap                                 , CAKE      , $1.49       , 0.07%       , $489.92M
+Virtuals Protocol                           , VIRTUAL   , $0.6687     , 0.46%       , $438.92M
+EURC                                        , EURC      , $1.16       , 0.02%       , $413.84M
+Pudgy Penguins                              , PENGU     , $0.006551   , 0.45%       , $411.86M
+Chiliz                                      , CHZ       , $0.03923    , 0.04%       , $403.93M
+First Digital USD                           , FDUSD     , $0.9991     , 0.02%       , $397.63M
+Stacks                                      , STX       , $0.2150     , 1.13%       , $390.23M
+Sei                                         , SEI       , $0.05655    , 0.11%       , $387.66M
+Monad                                       , MON       , $0.03581    , 1.87%       , $387.92M
+Tezos                                       , XTZ       , $0.3543     , 0.09%       , $383.13M
+Decred                                      , DCR       , $21.48      , 0.63%       , $373.05M
+edgeX                                       , EDGE      , $1.01       , 3.25%       , $353.88M
+Venice Token                                , VVV       , $7.63       , 0.56%       , $346.56M
+ether.fi                                    , ETHFI     , $0.4404     , 0.21%       , $346.78M
+Sun [New]                                   , SUN       , $0.01794    , 0.49%       , $345.16M
+Aerodrome Finance                           , AERO      , $0.3682     , 0.07%       , $339.26M
+Curve DAO Token                             , CRV       , $0.2196     , 0.32%       , $326.02M
+Bitcoin SV                                  , BSV       , $16.20      , 0.76%       , $324.25M
+AINFT                                       , NFT       , $0.063274   , 0.09%       , $324.24M
+Gnosis                                      , GNO       , $122.72     , 0.54%       , $323.91M
+BitTorrent [New]                            , BTT       , $0.063225   , 0.23%       , $318.37M
+Kaia                                        , KAIA      , $0.04744    , 0.36%       , $298.38M
+Injective                                   , INJ       , $2.97       , 0.28%       , $297.44M
+Immutable                                   , IMX       , $0.1472     , 0.64%       , $294.42M
+SPX6900                                     , SPX       , $0.3069     , 0.59%       , $285.78M
+Conflux                                     , CFX       , $0.05474    , 1.74%       , $284.69M
+DoubleZero                                  , 2Z        , $0.07996    , 1.62%       , $277.59M
+Lighter                                     , LIT       , $1.09       , 1.55%       , $274.44M
+Celestia                                    , TIA       , $0.3027     , 0.20%       , $273.36M
+Pyth Network                                , PYTH      , $0.04749    , 1.02%       , $273.11M
+Maple Finance                               , SYRUP     , $0.2336     , 0.55%       , $271.57M
+FLOKI                                       , FLOKI     , $0.00002845 , 0.14%       , $271.44M
+Lido DAO                                    , LDO       , $0.3183     , 0.21%       , $270.35M
+RaveDAO                                     , RAVE      , $1.12       , 12.69%      , $267.91M
+JasmyCoin                                   , JASMY     , $0.005324   , 0.08%       , $263.27M
+Zebec Network                               , ZBCN      , $0.002597   , 0.31%       , $259.7M
+The Graph                                   , GRT       , $0.02405    , 0.31%       , $259.19M
+IOTA                                        , IOTA      , $0.05694    , 0.29%       , $249.28M
+Optimism                                    , OP        , $0.1152     , 0.04%       , $246.32M
+Humanity Protocol                           , H         , $0.08863    , 0.79%       , $232.35M
+Plasma                                      , XPL       , $0.1255     , 0.40%       , $226.08M
+The Sandbox                                 , SAND      , $0.07741    , 0.34%       , $227.42M
+Ethereum Name Service                       , ENS       , $5.78       , 0.13%       , $221.85M
+Kite                                        , KITE      , $0.1213     , 0.61%       , $218.49M
+Terra Classic                               , LUNC      , $0.00003849 , 0.83%       , $210.34M
+Telcoin                                     , TEL       , $0.002179   , 0.04%       , $209.4M
+Vision                                      , VSN       , $0.05806    , 0.23%       , $207.27M
+River                                       , RIVER     , $10.47      , 0.89%       , $205.36M
+Neo                                         , NEO       , $2.86       , 0.55%       , $202.11M
+dogwifhat                                   , WIF       , $0.1969     , 0.10%       , $196.71M
+Compound                                    , COMP      , $19.54      , 0.25%       , $194.85M
+Starknet                                    , STRK      , $0.03390    , 0.61%       , $193.01M
+Axie Infinity                               , AXS       , $1.11       , 0.20%       , $189.12M
+Helium                                      , HNT       , $1.00       , 0.51%       , $186.88M
+Decentraland                                , MANA      , $0.09057    , 0.71%       , $179.88M
+Fartcoin                                    , FARTCOIN  , $0.1787     , 0.13%       , $178.74M
+Story                                       , IP        , $0.5073     , 0.33%       , $178.98M
+Onyxcoin                                    , XCN       , $0.004721   , 0.17%       , $178.29M
+Pendle                                      , PENDLE    , $1.05       , 0.37%       , $176.03M
+BUILDon                                     , B         , $0.1745     , 1.11%       , $174.56M
+Theta Network                               , THETA     , $0.1739     , 0.27%       , $173.93M
+Trust Wallet Token                          , TWT       , $0.3992     , 0.43%       , $171.63M
+Convex Finance                              , CVX       , $1.76       , 0.16%       , $170.93M
+Raydium                                     , RAY       , $0.6294     , 0.24%       , $169.14M
+Falcon Finance                              , FF        , $0.07140    , 0.21%       , $167.08M
+Walrus                                      , WAL       , $0.07177    , 0.34%       , $164.79M
+MX Token                                    , MX        , $1.78       , 0.16%       , $163.95M
+AB                                          , AB        , $0.001528   , 0.20%       , $151.03M
+Basic Attention Token                       , BAT       , $0.09932    , 0.03%       , $148.56M
+OriginTrail                                 , TRAC      , $0.2923     , 0.47%       , $146.17M
+ZKsync                                      , ZK        , $0.01523    , 0.18%       , $146.62M
+Gala                                        , GALA      , $0.003043   , 0.06%       , $144.89M
+SafePal                                     , SFP       , $0.2870     , 0.36%       , $143.55M
+DeepBook Protocol                           , DEEP      , $0.02798    , 0.26%       , $141.51M
+eCash                                       , XEC       , $0.056966   , 0.01%       , $139.43M
+THORChain                                   , RUNE      , $0.3955     , 0.21%       , $138.87M
+Stargate Finance                            , STG       , $0.2083     , 0.72%       , $137.68M
+Jito                                        , JTO       , $0.2993     , 0.61%       , $136.94M
+Centrifuge                                  , CFG       , $0.2338     , 2.31%       , $134.95M
+Vaulta                                      , A         , $0.07913    , 0.16%       , $129.31M
+1inch                                       , 1INCH     , $0.09176    , 0.29%       , $128.88M
+Golem                                       , GLM       , $0.1283     , 0.40%       , $128.32M
+Fluid                                       , FLUID     , $1.60       , 0.13%       , $125.44M
+Akash Network                               , AKT       , $0.4681     , 0.80%       , $122.94M
+CoW Protocol                                , COW       , $0.2154     , 0.20%       , $119.22M
+Sonic                                       , S         , $0.04112    , 0.29%       , $118.45M
+Sentient                                    , SENT      , $0.01618    , 0.74%       , $117.14M
+WEMIX                                       , WEMIX     , $0.2471     , 0.18%       , $114.25M
+MultiversX                                  , EGLD      , $3.84       , 0.50%       , $114.02M
+0G                                          , 0G        , $0.5294     , 0.15%       , $112.89M
+EigenCloud                                  , EIGEN     , $0.1637     , 0.38%       , $113.19M
+Arweave                                     , AR        , $1.72       , 0.91%       , $113.01M
+Aethir                                      , ATH       , $0.006118   , 0.29%       , $112.39M
+Gas                                         , GAS       , $1.72       , 0.18%       , $112.26M
+Horizen                                     , ZEN       , $6.06       , 0.41%       , $108.8M
+Official Melania Meme                       , MELANIA   , $0.1069     , 0.02%       , $106.94M
+AWE                                         , AWE       , $0.05124    , 2.45%       , $99.54M
+Berachain                                   , BERA      , $0.4145     , 0.17%       , $101.36M
+Synthetix                                   , SNX       , $0.2900     , 0.60%       , $99.91M
+Livepeer                                    , LPT       , $1.98       , 0.44%       , $98.53M
+Safe                                        , SAFE      , $0.1320     , 1.18%       , $96.08M
+Qtum                                        , QTUM      , $0.9110     , 0.11%       , $96.57M
+Lombard                                     , BARD      , $0.3189     , 1.04%       , $96.27M
+FTX Token                                   , FTT       , $0.2920     , 0.01%       , $96.07M
+Reserve Rights                              , RSR       , $0.001532   , 0.94%       , $95.86M
+KAITO                                       , KAITO     , $0.3950     , 1.10%       , $95.37M
+Beam                                        , BEAM      , $0.001831   , 0.49%       , $93.97M
+YZY MONEY                                   , YZY       , $0.3129     , 0.14%       , $93.9M
+Ravencoin                                   , RVN       , $0.005666   , 0.03%       , $91.68M
+Keeta                                       , KTA       , $0.1752     , 0.03%       , $91.24M
+yearn.finance                               , YFI       , "$2,501.91" , 0.00%       , $89.41M
+0x Protocol                                 , ZRX       , $0.1025     , 0.01%       , $86.96M
+Cheems (cheems.pet)                         , CHEEMS    , $0.064611   , 1.17%       , $86.45M
+Seeker                                      , SKR       , $0.01632    , 0.65%       , $86.17M
+DigiByte                                    , DGB       , $0.004685   , 0.01%       , $85.44M
+币安人生                                    , 币安人生  , $0.08585    , 2.60%       , $85.85M
+Grass                                       , GRASS     , $0.3469     , 1.35%       , $84.62M
+Rain                                        , RAIN      , $0.007914   , 0.63%       , $3.79B
+Falcon USD                                  , USDf      , $0.9973     , 0.02%       , $1.63B
+HTX                                         , HTX       , $0.051754   , 0.02%       , $1.61B
+Ondo US Dollar Yield                        , USDY      , $1.12       , 0.02%       , $1.33B
+Jupiter Perps LP                            , JLP       , $3.76       , 0.18%       , $911.96M
+Beldex                                      , BDX       , $0.08054    , 0.44%       , $623.23M
+GHO                                         , GHO       , $0.9993     , 0.01%       , $583.65M
+Usual USD                                   , USD0      , $0.9982     , 0.02%       , $565.6M
+USDai                                       , USDAI     , $0.9998     , 0.01%       , $501.27M
+Solstice USX                                , USX       , $0.9994     , 0.01%       , $359.5M
+Ducky                                       , DUCKY     , $0.0007213  , 0.29%       , $298.93M
+Legacy Frax Dollar                          , FRAX      , $0.9935     , 0.01%       , $274.17M
+Ape and Pepe                                , APEPE     , $0.051294   , 0.15%       , $271.8M
+ADI                                         , ADI       , $4.42       , 0.08%       , $226.32M
+Yooldo                                      , ESPORTS   , $0.4401     , 0.22%       , $201.58M
+SwissBorg                                   , BORG      , $0.1832     , 0.09%       , $179.96M
+WeFi                                        , WFI       , $2.16       , 0.57%       , $177.77M
+Undeads Games                               , UDS       , $1.77       , 0.32%       , $175.8M
+48 Club Token                               , KOGE      , $47.99      , 0.00%       , $162.63M
+AUSD                                        , AUSD      , $0.9997     , 0.01%       , $150.13M
+GUSD                                        , GUSD      , $0.9994     , 0.00%       , $149.36M
+Ultima                                      , ULTIMA    , "$3,926.32" , 0.63%       , $146.88M
+Circle tokenized stock (xStock)             , CRCLX     , $86.32      , 0.11%       , $146.35M
+Zano                                        , ZANO      , $9.42       , 0.49%       , $143.66M
+Circle Internet Group Tokenized Stock (Ondo), CRCLon    , $86.07      , 0.03%       , $133.99M
+Frax USD                                    , FRXUSD    , $0.9997     , 0.00%       , $133.72M
+SuperTrust                                  , SUT       , $0.6898     , 1.04%       , $129.97M
+SoSoValue                                   , SOSO      , $0.4083     , 0.22%       , $127.41M
+AriaAI                                      , ARIA      , $0.4090     , 14.59%      , $127.73M
+Ailey                                       , ALE       , $0.2633     , 0.04%       , $125.03M
+EUR CoinVertible                            , EURCV     , $1.16       , 0.00%       , $121.94M
+Aster USDF                                  , USDF      , $0.9985     , 0.02%       , $118.87M
+GoМining                                    , GOMINING  , $0.2852     , 0.85%       , $115.56M
+Qubic                                       , QUBIC     , $0.068333   , 0.36%       , $114.03M
+Shuffle                                     , SHFL      , $0.2909     , 0.71%       , $116.83M
+LAB                                         , LAB       , $0.4823     , 1.90%       , $111.13M
+Ribbita by Virtuals                         , TIBBIR    , $0.1102     , 0.11%       , $110.22M
+Rollbit Coin                                , RLB       , $0.06391    , 0.14%       , $109.26M
+ViciCoin                                    , VCNT      , $17.84      , 0.02%       , $108.63M
+BitMart Token                               , BMX       , $0.3277     , 0.06%       , $106.29M
+Light                                       , LIGHT     , $0.1749     , 2.43%       , $106.03M
+ETHGas                                      , GWEI      , $0.05773    , 0.46%       , $101.03M
+MNEE                                        , MNEE      , $0.9998     , 0.01%       , $101.33M
+TronBank                                    , TBK       , $0.6215     , 1.05%       , $98.92M
+StandX DUSD                                 , DUSD      , $0.9995     , 0.01%       , $98.83M
+Smilek to the Bank                          , SMILEK    , $0.00005000 , 0.00%       , $97.95M
+Pieverse                                    , PIEVERSE  , $0.5049     , 0.28%       , $96.96M
+Banana For Scale                            , BANANAS31 , $0.009438   , 0.64%       , $94.39M
+RealLink                                    , REAL      , $0.06498    , 0.78%       , $89.29M
+Grass                                       , GRASS     , $0.3468     , 1.59%       , $84.61M
+Theta Fuel                                  , TFUEL     , $0.01139    , 0.47%       , $83.1M
+Everything                                  , EV        , $0.0008115  , 2.88%       , $81.15M
+Verge                                       , XVG       , $0.004893   , 1.23%       , $80.85M
+dYdX                                        , DYDX      , $0.09508    , 0.43%       , $79.41M
+Four                                        , FORM      , $0.2051     , 0.61%       , $78.34M
+Zilliqa                                     , ZIL       , $0.003928   , 0.09%       , $78.46M
+Oasis                                       , ROSE      , $0.01038    , 0.56%       , $78.45M
+USDH                                        , USDH      , $1.00       , 0.03%       , $78.29M
+Tesla tokenized stock (xStock)              , TSLAX     , $346.02     , 0.10%       , $77.95M
+Creditcoin                                  , CTC       , $0.1453     , 0.04%       , $77.85M
+lisUSD                                      , lisUSD    , $0.9979     , 0.03%       , $76.16M
+Mina                                        , MINA      , $0.05914    , 0.04%       , $75.8M
+Kusama                                      , KSM       , $4.18       , 0.33%       , $75.55M
+NEXPACE                                     , NXPC      , $0.2860     , 0.30%       , $75.38M
+U.S. Dollar Tokenized Currency (Ondo)       , USDon     , $0.9999     , 0.01%       , $75.36M
+Amp                                         , AMP       , $0.0008938  , 0.00%       , $75.34M
+Turbo                                       , TURBO     , $0.001078   , 0.45%       , $74.4M
+Toshi                                       , TOSHI     , $0.0001776  , 0.34%       , $74.71M
+SuperVerse                                  , SUPER     , $0.1165     , 0.37%       , $74.23M
+SKYAI                                       , SKYAI     , $0.07382    , 0.00%       , $73.83M
+Ontology                                    , ONT       , $0.07937    , 1.42%       , $74.16M
+Wormhole                                    , W         , $0.01288    , 0.34%       , $73.14M
+Fogo                                        , FOGO      , $0.01913    , 0.80%       , $72.77M
+would                                       , WOULD     , $0.07088    , 0.48%       , $70.85M
+Holo                                        , HOT       , $0.0004034  , 0.19%       , $70.86M
+Loaded Lions                                , LION      , $0.002292   , 0.35%       , $70.72M
+AI Rig Complex                              , ARC       , $0.07066    , 0.03%       , $70.66M
+Sahara AI                                   , SAHARA    , $0.02233    , 0.66%       , $70.17M
+Nervos Network                              , CKB       , $0.001444   , 0.40%       , $70.13M
+AIOZ Network                                , AIOZ      , $0.05640    , 0.11%       , $70.3M
+Baby Doge Coin                              , BabyDoge  , $0.093913   , 0.18%       , $70.12M
+Dohrnii                                     , DHN       , $4.05       , 0.04%       , $69.19M
+Meteora                                     , MET       , $0.1336     , 0.22%       , $68.7M
+Dog (Bitcoin)                               , DOG       , $0.0006885  , 0.18%       , $68.86M
+ZetaChain                                   , ZETA      , $0.05012    , 0.10%       , $68.37M
+Threshold                                   , T         , $0.006135   , 0.21%       , $68.44M
+Derive                                      , DRV       , $0.09208    , 0.63%       , $67.92M
+Ronin                                       , RON       , $0.08729    , 0.85%       , $67.43M
+MYX Finance                                 , MYX       , $0.2388     , 0.28%       , $67.31M
+Impossible Cloud Network                    , ICNT      , $0.2652     , 1.14%       , $67.12M
+Brett (Based)                               , BRETT     , $0.006689   , 0.50%       , $66.89M
+ZORA                                        , ZORA      , $0.01491    , 0.58%       , $66.67M
+ApeCoin                                     , APE       , $0.08847    , 0.39%       , $66.59M
+MetYa                                       , MY        , $0.06687    , 0.68%       , $65.81M
+MultiBank Group                             , MBG       , $0.3534     , 0.48%       , $65.45M
+Astar                                       , ASTR      , $0.007610   , 0.25%       , $65.3M
+Movement                                    , MOVE      , $0.01775    , 0.55%       , $65.22M
+Audiera                                     , BEAT      , $0.2928     , 8.40%       , $65.67M
+XPR Network                                 , XPR       , $0.002255   , 2.67%       , $64.95M
+aelf                                        , ELF       , $0.07895    , 0.12%       , $64.7M
+Tradoor                                     , TRADOOR   , $4.50       , 0.15%       , $64.59M
+MindWaveDAO                                 , NILA      , $0.07608    , 0.03%       , $64.12M
+Defi App                                    , HOME      , $0.01861    , 0.86%       , $64.05M
+Pythia                                      , PYTHIA    , $0.06330    , 1.45%       , $63.19M
+Fidelity Digital Dollar                     , FIDD      , $0.9997     , 0.01%       , $62.59M
+SUPERFORTUNE                                , GUA       , $0.5006     , 1.48%       , $62.58M
+SP500 tokenized ETF (xStock)                , SPYX      , $680.83     , 0.00%       , $62.56M
+Blur                                        , BLUR      , $0.02245    , 1.70%       , $62.29M
+Dusk                                        , DUSK      , $0.1249     , 0.90%       , $62.1M
+Tagger                                      , TAG       , $0.0005725  , 0.57%       , $62.06M
+Zeebu                                       , ZBU       , $0.3424     , 0.01%       , $61.48M
+Targon                                      , SN4       , $13.84      , 1.20%       , $61.11M
+World Mobile Token                          , WMTX      , $0.07127    , 0.06%       , $60.62M
+Numeraire                                   , NMR       , $8.17       , 0.46%       , $60.51M
+Concordium                                  , CCD       , $0.005016   , 0.08%       , $60.29M
+Alphabet tokenized stock (xStock)           , GOOGLX    , $317.86     , 0.03%       , $60.22M
+Venus BUSD                                  , vBUSD     , $0.02230    , 0.02%       , $60.12M
+GMX                                         , GMX       , $5.77       , 0.43%       , $60M
+Eurite                                      , EURI      , $1.16       , 0.00%       , $59.55M
+Wiki Cat                                    , WKC       , $0.061097   , 0.36%       , $59.17M
+KUB Coin                                    , KUB       , $0.8533     , 0.42%       , $58.86M
+Joseon Mun                                  , JSM       , $0.0001852  , 0.02%       , $58.63M
+Nano                                        , XNO       , $0.4393     , 1.07%       , $58.54M
+Alchemy Pay                                 , ACH       , $0.005835   , 0.42%       , $58.36M
+Aztec                                       , AZTEC     , $0.02003    , 1.56%       , $57.68M
+Burnedfi                                    , BURN      , $4.73       , 0.67%       , $58.49M
+Kava                                        , KAVA      , $0.05330    , 0.29%       , $57.72M
+Comedian                                    , BAN       , $0.05790    , 0.89%       , $57.9M
+SLT                                         , SLT       , $6.72       , 0.12%       , $57.14M
+GEODNET                                     , GEOD      , $0.1312     , 2.86%       , $57.58M
+BitDCA                                      , BDCA      , $0.6924     , 0.02%       , $56.77M
+VVS Finance                                 , VVS       , $0.051301   , 0.51%       , $56.68M
+Irys                                        , IRYS      , $0.02293    , 0.37%       , $56.73M
+Lumera Health                               , LUR       , $3.71       , 0.09%       , $56.42M
+Enjin Coin                                  , ENJ       , $0.02890    , 2.68%       , $56.31M
+InitVerse                                   , INI       , $0.1028     , 0.10%       , $56.21M
+Alchemist AI                                , ALCH      , $0.06584    , 0.19%       , $55.97M
+Paycoin                                     , PCI       , $0.05248    , 3.67%       , $55.9M
+SushiSwap                                   , SUSHI     , $0.1943     , 0.11%       , $55.74M
+VeThor Token                                , VTHO      , $0.0005600  , 0.22%       , $55.56M
+Velo                                        , VELO      , $0.003139   , 0.14%       , $55.13M
+RedStone                                    , RED       , $0.1567     , 0.43%       , $54.74M
+Flow                                        , FLOW      , $0.03313    , 0.44%       , $54.81M
+Siacoin                                     , SC        , $0.0009725  , 0.43%       , $54.49M
+Orca                                        , ORCA      , $0.8894     , 0.59%       , $54.08M
+HashKey Platform Token                      , HSK       , $0.1545     , 0.54%       , $53.32M
+Request                                     , REQ       , $0.06681    , 0.02%       , $53.23M
+Ankr                                        , ANKR      , $0.005294   , 0.43%       , $52.95M
+Axelar                                      , AXL       , $0.04585    , 0.06%       , $52.73M
+Moca Network                                , MOCA      , $0.01290    , 0.33%       , $52.82M
+ChainOpera AI                               , COAI      , $0.2790     , 0.16%       , $52.46M
+Sign                                        , SIGN      , $0.03190    , 0.74%       , $52.33M
+cat in a dogs world                         , MEW       , $0.0005861  , 0.02%       , $52.1M
+Mog Coin                                    , MOG       , $0.061333   , 0.25%       , $52.08M
+Non-Playable Coin                           , NPC       , $0.006891   , 1.07%       , $52.03M
+Polymesh                                    , POLYX     , $0.05017    , 0.10%       , $52.03M
+MANTRA                                      , MANTRA    , $0.01061    , 0.39%       , $51.49M
+Zama                                        , ZAMA      , $0.02346    , 0.00%       , $51.62M
+Matrixdock Gold                             , XAUM      , "$4,766.63" , 0.01%       , $51.45M
+Waves                                       , WAVES     , $0.4141     , 0.24%       , $51.38M
+ORDI                                        , ORDI      , $2.43       , 0.08%       , $51.08M
+Tria                                        , TRIA      , $0.02360    , 4.83%       , $50.93M
+Linea                                       , LINEA     , $0.003271   , 0.65%       , $50.65M
+Plume                                       , PLUME     , $0.009464   , 0.19%       , $50.48M
+Magic Eden                                  , ME        , $0.1060     , 0.08%       , $50.72M
+Spark                                       , SPK       , $0.01995    , 0.10%       , $50.42M
+StraitsX USD                                , XUSD      , $0.9998     , 0.00%       , $50.26M
+Popcat (SOL)                                , POPCAT    , $0.05080    , 0.35%       , $49.78M
+WhiteRock                                   , WHITE     , $0.00007645 , 0.11%       , $49.7M
+Law Blocks (AI)                             , LBT       , $0.2015     , 0.13%       , $49.39M
+XYO                                         , XYO       , $0.003586   , 0.59%       , $49.23M
+Moo Deng (moodengsol.com)                   , MOODENG   , $0.04948    , 0.26%       , $48.99M
+Unibase                                     , UB        , $0.02008    , 1.35%       , $50.22M
+Celo                                        , CELO      , $0.08149    , 0.13%       , $48.82M
+Casper                                      , CSPR      , $0.003035   , 0.17%       , $48M
+ChangeNOW Token                             , NOW       , $0.5650     , 0.02%       , $47.92M
+SOON                                        , SOON      , $0.1028     , 0.37%       , $47.43M
+UnifAI Network                              , UAI       , $0.1986     , 1.53%       , $47.48M
+lium                                        , SN51      , $12.31      , 0.30%       , $47.03M
+Status                                      , SNT       , $0.009781   , 0.63%       , $46.93M
+Huma Finance                                , HUMA      , $0.01614    , 2.50%       , $46.8M
+VNDC                                        , VNDC      , $0.00003240 , 0.00%       , $45.77M
+Aleo                                        , ALEO      , $0.04461    , 0.02%       , $45.72M
+Jelly-My-Jelly                              , JELLYJELLY, $0.04529    , 0.51%       , $45.29M
+Magma Finance                               , MAGMA     , $0.2337     , 1.35%       , $44.42M
+Avantis                                     , AVNT      , $0.1403     , 0.58%       , $44.89M
+Coinbase tokenized stock (xStock)           , COINX     , $167.70     , 0.44%       , $44.64M
+Venus                                       , XVS       , $2.70       , 0.38%       , $44.33M
+NVIDIA tokenized stock (xStock)             , NVDAX     , $182.99     , 0.02%       , $44.15M
+Mask Network                                , MASK      , $0.4405     , 0.22%       , $44.06M
+Ardor                                       , ARDR      , $0.04394    , 0.49%       , $43.88M
+Tornado Cash                                , TORN      , $8.32       , 0.19%       , $43.79M
+GOHOME                                      , GOHOME    , $87.49      , 0.07%       , $43.74M
+PlaysOut                                    , PLAY      , $0.06517    , 1.23%       , $43.74M
+EscoinToken                                 , ELG       , $0.2776     , 0.42%       , $43.63M
+Succinct                                    , PROVE     , $0.2238     , 0.22%       , $43.64M
+Gemini Dollar                               , GUSD      , $0.9994     , 0.01%       , $43.56M
+IoTeX                                       , IOTX      , $0.004582   , 0.76%       , $43.26M
+Meta tokenized stock (xStock)               , METAX     , $632.35     , 0.01%       , $43.36M
+Janction                                    , JCT       , $0.003732   , 0.74%       , $42.9M
+Fractal Bitcoin                             , FB        , $0.4314     , 0.91%       , $42.89M
+SPACE ID                                    , ID        , $0.03102    , 0.26%       , $42.86M
+Peanut the Squirrel                         , PNUT      , $0.04258    , 0.10%       , $42.58M
+StorX Network                               , SRX       , $0.05878    , 0.11%       , $42.65M
+Staika                                      , STIK      , $0.3042     , 0.01%       , $42.49M
+Decentralized Social                        , DESO      , $4.72       , 0.14%       , $42M
+ZIGChain                                    , ZIG       , $0.02973    , 0.10%       , $41.89M
+Gravity                                     , G         , $0.003915   , 0.04%       , $41.73M
+BSquared Network                            , B2        , $0.6168     , 1.81%       , $41.55M
+BIM                                         , BIM       , $1.38       , 0.12%       , $41.54M
+Espresso                                    , ESP       , $0.07954    , 0.76%       , $41.41M
+Tellor                                      , TRB       , $14.85      , 0.30%       , $41.06M
+Storj                                       , STORJ     , $0.09609    , 0.09%       , $40.84M
+Glidr                                       , GLIDR     , $1.14       , 0.44%       , $40.63M
+Pax Dollar                                  , USDP      , $0.9997     , 0.01%       , $40.56M
+Vitalum                                     , VAM       , $0.1193     , 0.31%       , $40.56M
+Aegis YUSD                                  , YUSD      , $0.9960     , 0.00%       , $40.5M
+τemplar                                     , SN3       , $9.58       , 7.04%       , $40.44M
+Ant.FUN                                     , ANB       , $0.02125    , 0.00%       , $40.15M
+BUSD                                        , BUSD      , $1.00       , 0.02%       , $40.05M
+BORA                                        , BORA      , $0.03622    , 0.78%       , $39.84M
+SKALE                                       , SKL       , $0.006447   , 0.93%       , $39.82M
+ICON                                        , ICX       , $0.03613    , 0.03%       , $39.58M
+Pirate Chain                                , ARRR      , $0.2018     , 0.19%       , $39.6M
+Ontology Gas                                , ONG       , $0.08901    , 5.04%       , $39.92M
+Altlayer                                    , ALT       , $0.006646   , 0.53%       , $39.36M
+aPriori                                     , APR       , $0.1812     , 2.25%       , $39.13M
+Babylon                                     , BABY      , $0.01380    , 0.44%       , $39.13M
+Marvell tokenized stock (xStock)            , MRVLX     , $124.90     , 0.00%       , $39.3M
+Niza Global                                 , NIZA      , $0.02422    , 0.20%       , $39.11M
+Vana                                        , VANA      , $1.29       , 0.57%       , $39.03M
+Moonbirds                                   , BIRB      , $0.1376     , 0.71%       , $39.23M
+Terra                                       , LUNA      , $0.05522    , 0.08%       , $39.21M
+Xphere                                      , XP        , $0.01473    , 0.92%       , $38.96M
+ApeX Protocol                               , APEX      , $0.2810     , 0.12%       , $38.87M
+Dogelon Mars                                , ELON      , $0.073895   , 0.71%       , $38.9M
+OpenLedger                                  , OPEN      , $0.1799     , 0.26%       , $38.79M
+COTI                                        , COTI      , $0.01397    , 0.58%       , $38.57M
+Block Street                                , BSB       , $0.1873     , 0.12%       , $38.93M
+Frax (prev. FXS)                            , FRAX      , $0.4056     , 0.62%       , $38.7M
+Rocket Pool                                 , RPL       , $1.73       , 0.07%       , $38.78M
+Wibegram                                    , WIBE      , $1.90       , 0.09%       , $38.76M
+Bio Protocol                                , BIO       , $0.01825    , 0.37%       , $38.54M
+Frankencoin                                 , ZCHF      , $1.26       , 0.01%       , $38.69M
+Rekt (rekt.com)                             , REKT      , $0.061361   , 0.05%       , $38.38M
+Naoris Protocol                             , NAORIS    , $0.06403    , 0.39%       , $38.37M
+Orbs                                        , ORBS      , $0.008693   , 0.71%       , $38.07M
+KnoxNet                                     , KNX       , $0.03798    , 0.68%       , $37.98M
+Pundi X (New)                               , PUNDIX    , $0.1465     , 0.51%       , $37.87M
+Fabric Protocol                             , ROBO      , $0.01681    , 0.56%       , $37.52M
+ssv.network                                 , SSV       , $2.17       , 0.28%       , $37.39M
+UMA                                         , UMA       , $0.4112     , 0.73%       , $37.29M
+Powerledger                                 , POWR      , $0.06566    , 0.35%       , $37.31M
+AI Analysis Token                           , AIAT      , $0.2533     , 0.29%       , $37.09M
+Proprietary Trading Network                 , SN8       , $8.58       , 1.54%       , $36.86M
+LCX                                         , LCX       , $0.03902    , 0.38%       , $37.04M
+AIHub                                       , AIH       , $32.62      , 4.88%       , $38.17M
+iExec RLC                                   , RLC       , $0.4215     , 0.59%       , $36.68M
+Nasdaq tokenized ETF (xStock)               , QQQX      , $610.42     , 0.04%       , $36.75M
+Holoworld AI                                , HOLO      , $0.05724    , 1.08%       , $36.68M
+Useless Coin                                , USELESS   , $0.03638    , 0.36%       , $36.35M
+Band                                        , BAND      , $0.2094     , 0.06%       , $36.58M
+MVL                                         , MVL       , $0.001308   , 1.55%       , $36.39M
+Backpack                                    , BP        , $0.1461     , 0.37%       , $36.55M
+Atoshi                                      , ATOS      , $0.04021    , 0.00%       , $36.32M
+SMART                                       , SMART     , $0.005398   , 0.21%       , $36.28M
+PumpMeme                                    , PM        , $1.12       , 0.53%       , $36.08M
+Mango                                       , MNGO      , $0.03234    , 0.00%       , $36.14M
+SPDR S&P 500 Tokenized ETF (Ondo)           , SPYon     , $683.15     , 0.07%       , $35.94M
+UNIPOLY                                     , UNP       , $0.1622     , 0.29%       , $35.57M
+Celo Dollar                                 , CUSD      , $0.9994     , 0.03%       , $35.53M
+Bitway                                      , BTW       , $0.01612    , 0.07%       , $35.48M
+APRO                                        , AT        , $0.1419     , 0.24%       , $35.49M
+IOST                                        , IOST      , $0.001077   , 0.56%       , $35.27M
+Somnia                                      , SOMI      , $0.1621     , 0.35%       , $35.18M
+Notcoin                                     , NOT       , $0.0003543  , 0.04%       , $35.24M
+GoPlus Security                             , GPS       , $0.007950   , 0.05%       , $35.13M
+Rootstock Infrastructure Framework          , RIF       , $0.03507    , 0.32%       , $35.07M
+Gold tokenized ETF (xStock)                 , GLDX      , $436.90     , 0.07%       , $35.05M
+ECOMI                                       , OMI       , $0.0001233  , 0.44%       , $34.84M
+Anchored Coins AEUR                         , AEUR      , $1.15       , 0.07%       , $34.54M
+KGeN                                        , KGEN      , $0.1634     , 1.04%       , $34.5M
+ConstitutionDAO                             , PEOPLE    , $0.006827   , 0.56%       , $34.55M
+Subsquid                                    , SQD       , $0.03308    , 0.41%       , $34.11M
+Autonomi                                    , ANT       , $0.1041     , 0.05%       , $33.96M
+Open Campus                                 , EDU       , $0.04594    , 2.52%       , $33.82M
+Propy                                       , PRO       , $0.3386     , 0.04%       , $33.86M
+SwftCoin                                    , SWFTC     , $0.003368   , 0.02%       , $33.68M
+DEAPcoin                                    , DEP       , $0.001126   , 0.01%       , $33.67M
+Tokenlon Network Token                      , LON       , $0.2714     , 0.20%       , $33.51M
+ArcBlock                                    , ABT       , $0.3412     , 0.57%       , $33.64M
+WOO                                         , WOO       , $0.01759    , 0.48%       , $33.24M
+Chia                                        , XCH       , $2.31       , 0.05%       , $33.31M
+Alaya Governance Token                      , AGT       , $0.01420    , 0.22%       , $32.75M
+Solayer                                     , LAYER     , $0.08103    , 0.72%       , $33.18M
+Osaka Protocol                              , OSAK      , $0.074413   , 0.61%       , $33.14M
+Ampleforth                                  , AMPL      , $1.18       , 1.32%       , $33.55M
+Score                                       , SN44      , $7.62       , 1.85%       , $32.91M
+iShares Silver Trust Tokenized ETF (Ondo)   , SLVon     , $68.25      , 0.04%       , $32.81M
+Ridges AI                                   , SN62      , $7.66       , 2.02%       , $33.51M

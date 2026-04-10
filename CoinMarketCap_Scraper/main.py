@@ -5,11 +5,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
-from dotenv import load_dotenv
 import time
 import os
 import csv
-from urllib.parse import urljoin
+
 
 # config
 BASE_URL = "https://coinmarketcap.com/?page={page_num}"
@@ -84,9 +83,7 @@ def main():
     try:
         for page_num in range(1, TOTAL_PAGES + 1):
             scrape_data(driver,page_num,OUTPUT_FILE)
-            
-            # print(f"[{i}/{len(urls)}] Saved: {product['name']}")
-
+            print(f"[Page {page_num}/{TOTAL_PAGES}] Scraped successfully.")
     finally:
         time.sleep(5)
         driver.quit()

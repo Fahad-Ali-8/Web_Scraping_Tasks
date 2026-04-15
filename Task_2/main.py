@@ -10,6 +10,7 @@ import time
 import pandas as pd
 from urllib.parse import urljoin
 
+# Using hearders 
 headers = {"User-Agent": "Chrome/5.0"}
 url = "https://books.toscrape.com/"
 options = webdriver.ChromeOptions()

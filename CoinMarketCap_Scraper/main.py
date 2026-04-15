@@ -7,13 +7,14 @@ from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 import mysql.connector
 from dotenv import load_dotenv
+import schedule
 import time
 import os
 
 load_dotenv()
 # config
 BASE_URL = "https://coinmarketcap.com/?page={page_num}"
-TOTAL_PAGES = 50
+TOTAL_PAGES = 5
  
 # database setup 
 def init_db():
@@ -33,7 +34,7 @@ def init_db():
             name        VARCHAR(100),
             icon        VARCHAR(20),
             price       VARCHAR(50),
-            change_24h  VARCHAR(20),
+            change_24h  VARCHAR(50),
             marketcap   VARCHAR(50)
         )
     """)
@@ -102,23 +103,34 @@ def scrape_data(driver,cursor,conn,page_num):
         save_row(cursor, conn, data)
         saved += 1
 
-    # print(f"[Page {page_num}/{TOTAL_PAGES}] Saved {saved} rows to database.")
+    print(f"[Page {page_num}/{TOTAL_PAGES}] Saved {saved} rows to database.")
 
-# main
-def main():
+# scraper job
+def run_scraper():
+    print(f"Scraper started...")
     conn, cursor = init_db()
     driver = init_driver()
-
     try:
         for page_num in range(1, TOTAL_PAGES + 1):
             scrape_data(driver,cursor, conn,page_num)
-            print(f"[Page {page_num}/{TOTAL_PAGES}] Scraped successfully.")
+
     finally:
-        time.sleep(5)
+        time.sleep(3)
         driver.quit()
         cursor.close()
         conn.close()
-        print("Done! All data saved to MySQL.")
+        print("Done! All data saved to database")
+
+# main
+def main():
+    print("scheduler started scraper will run every 5mins")
+
+    run_scraper()
+    schedule.every(5).minutes.do(run_scraper)
+
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
 
 
 if __name__ == "__main__":

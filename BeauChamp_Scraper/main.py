@@ -4,12 +4,48 @@ from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 import csv
 import time
+import pyodbc
 
 # config
 BASE_URL = "https://www.beauchampestates.com"
 SALE_URL = f"{BASE_URL}/london/luxury-properties-for-sale-in-london"
 RENT_URL = f"{BASE_URL}/london/luxury-properties-for-rent-in-london" 
 OUTPUT_FILE = "beauchamp_all.csv"
+
+# db config
+SERVER = "DESKTOP-9NI8UQ0"
+DATABASE = "BeauChamp_DB"
+CONN_STR = f"DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={SERVER};DATABASE={DATABASE};Trusted_Connection=yes;"
+
+# ── db ──────────────────────────────────────────────────────────────────────
+
+def get_connection():
+    return pyodbc.connect(CONN_STR)
+
+def create_table(conn):
+    cursor = conn.cursor()
+    cursor.execute("""
+        IF NOT EXISTS (
+            SELECT * FROM sysobjects WHERE name='properties' AND xtype='U'
+        )
+        CREATE TABLE properties (
+            id          INT IDENTITY(1,1) PRIMARY KEY,
+            title       NVARCHAR(500),
+            address     NVARCHAR(500),
+            price       NVARCHAR(100),
+            beds        NVARCHAR(50),
+            baths       NVARCHAR(50),
+            sqft        NVARCHAR(50),
+            url         NVARCHAR(1000),
+            type        NVARCHAR(10),
+            contact     NVARCHAR(100),
+            image_url   NVARCHAR(1000)
+        )
+    """)
+    conn.commit()
+    print("Table ready.")
+
+
 
 # opening browser
 def get_driver():

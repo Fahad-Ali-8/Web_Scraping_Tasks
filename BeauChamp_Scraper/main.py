@@ -2,7 +2,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
-import csv
 import time
 import pyodbc
 
@@ -45,7 +44,25 @@ def create_table(conn):
     conn.commit()
     print("Table ready.")
 
-
+def insert_listing(conn, listing):
+    cursor = conn.cursor()
+    cursor.execute("""
+        INSERT INTO properties
+            (title, address, price, beds, baths, sqft, url, type, contact, image_url)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """,
+        listing["title"],
+        listing["address"],
+        listing["price"],
+        listing["beds"],
+        listing["baths"],
+        listing["sqft"],
+        listing["url"],
+        listing["type"],
+        listing["contact"],
+        listing["image_url"],
+    )
+    conn.commit()
 
 # opening browser
 def get_driver():
@@ -60,11 +77,17 @@ def scroll_page(driver):
     time.sleep(3)
     print("Scrolling done.")
 
-# parcing html
+# parcing main page
 def get_soup(driver, url):
     driver.get(url)
     time.sleep(3)
     scroll_page(driver)
+    return BeautifulSoup(driver.page_source, "html.parser")
+
+# parcing single property page
+def get_detail_soup(driver, url):
+    driver.get(url)
+    time.sleep(3)
     return BeautifulSoup(driver.page_source, "html.parser")
 
 # targeting the css selectors
@@ -113,6 +136,8 @@ def scrape_data(soup, listing_type):
             "sqft": sqft,
             "url": url,
             "type": listing_type,
+            "contact": "N/A",
+            "image_url": "N/A",
         })
 
         # deduplicate by url
@@ -125,41 +150,62 @@ def scrape_data(soup, listing_type):
     
     return unique
 
-# saving data to csv
-def save_to_csv(listings, filename, write_header=False):
-    fieldnames = ["title", "address", "price", "beds", "baths", "sqft", "url", "type"]
-    mode = "w" if write_header else "a"
-    with open(filename, mode, newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        if write_header:
-            writer.writeheader()
-        writer.writerows(listings)
+# scrapinf single property page 
+def scrape_detail(soup):
+    # contact number
+    contact = "N/A"
+    tel_tag = soup.select_one("a[href^='tel:']")
+    if tel_tag:
+        contact = tel_tag.get_text(strip=True).replace("Tel: ", "")
+
+    # first image url
+    image_url = "N/A"
+    img_tag = soup.select_one("img[src*='admin.beauchampestates.com']")
+    if img_tag:
+        image_url = img_tag["src"]
+
+    return contact, image_url
+
 
 # main
 def main():
-    print("Starting Selenium driver...")
+    print("Connecting to SQL Server...")
+    conn = get_connection()
+    create_table(conn)
     driver = get_driver()
-
+    print("Starting Selenium driver...")    
     try:
         # --- FOR SALE ---
         print("Loading sale listings...")
         soup = get_soup(driver, SALE_URL)
         sale_listings = scrape_data(soup, listing_type="sale")
-        save_to_csv(sale_listings, OUTPUT_FILE, write_header=True)
-        print(f"Sale done: {len(sale_listings)} listings saved.")
+        print(f"Found {len(sale_listings)} sale listings.")
 
         # --- FOR RENT ---
         print("Loading rent listings...")
         soup = get_soup(driver, RENT_URL)
         rent_listings = scrape_data(soup, listing_type="rent")
-        save_to_csv(rent_listings, OUTPUT_FILE, write_header=False)
-        print(f"Rent done: {len(rent_listings)} listings saved.")
+        print(f"Found {len(rent_listings)} rent listings.")
 
-        print(f"Total: {len(sale_listings) + len(rent_listings)} listings in {OUTPUT_FILE}")
+        all_listings = sale_listings + rent_listings
+        print(f"Total: {len(all_listings)} listings. Now visiting detail pages...")
+
+        # --- DETAIL PAGES ---
+        for i, listing in enumerate(all_listings):
+            print(f"[{i+1}/{len(all_listings)}] {listing['url']}")
+            detail_soup = get_detail_soup(driver, listing["url"])
+            contact, image_url = scrape_detail(detail_soup)
+            listing["contact"] = contact
+            listing["image_url"] = image_url
+
+            insert_listing(conn, listing)
+            time.sleep(1)  # polite delay between requests
+
+        print(f"Done. {len(all_listings)} listings inserted into BeauChamp_DB.")
 
     finally:
         driver.quit()
-
+        conn.close()
 
 if __name__ == "__main__":
     main()

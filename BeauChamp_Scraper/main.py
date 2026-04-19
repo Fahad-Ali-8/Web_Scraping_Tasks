@@ -175,13 +175,13 @@ def main():
     driver = get_driver()
     print("Starting Selenium driver...")    
     try:
-        # --- FOR SALE ---
+        # FOR SALE 
         print("Loading sale listings...")
         soup = get_soup(driver, SALE_URL)
         sale_listings = scrape_data(soup, listing_type="sale")
         print(f"Found {len(sale_listings)} sale listings.")
 
-        # --- FOR RENT ---
+        # FOR RENT 
         print("Loading rent listings...")
         soup = get_soup(driver, RENT_URL)
         rent_listings = scrape_data(soup, listing_type="rent")

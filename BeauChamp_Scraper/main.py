@@ -150,7 +150,7 @@ def scrape_data(soup, listing_type):
     
     return unique
 
-# scrapinf single property page 
+# scraping single property page 
 def scrape_detail(soup):
     # contact number
     contact = "N/A"
@@ -174,6 +174,8 @@ def main():
     create_table(conn)
     driver = get_driver()
     print("Starting Selenium driver...")    
+
+    
     try:
         # FOR SALE 
         print("Loading sale listings...")

@@ -16,7 +16,7 @@ SERVER = "DESKTOP-9NI8UQ0"
 DATABASE = "BeauChamp_DB"
 CONN_STR = f"DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={SERVER};DATABASE={DATABASE};Trusted_Connection=yes;"
 
-# ── db ──────────────────────────────────────────────────────────────────────
+# db 
 
 def get_connection():
     return pyodbc.connect(CONN_STR)
@@ -42,7 +42,11 @@ def create_table(conn):
         )
     """)
     conn.commit()
-    print("Table ready.")
+
+    cursor.execute("TRUNCATE TABLE properties")  
+    conn.commit()
+    print("Table ready and cleared.")
+
 
 def insert_listing(conn, listing):
     cursor = conn.cursor()
@@ -175,7 +179,7 @@ def main():
     driver = get_driver()
     print("Starting Selenium driver...")    
 
-    
+
     try:
         # FOR SALE 
         print("Loading sale listings...")
@@ -192,7 +196,7 @@ def main():
         all_listings = sale_listings + rent_listings
         print(f"Total: {len(all_listings)} listings. Now visiting detail pages...")
 
-        # --- DETAIL PAGES ---
+        # DETAIL PAGES
         for i, listing in enumerate(all_listings):
             print(f"[{i+1}/{len(all_listings)}] {listing['url']}")
             detail_soup = get_detail_soup(driver, listing["url"])

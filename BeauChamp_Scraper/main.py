@@ -98,7 +98,6 @@ def get_detail_soup(driver, url):
 
 
 def get_urls_from_listings(soup):
-    """Grab only the property urls from the main listings page."""
     urls = []
     seen = set()
 
@@ -116,7 +115,6 @@ def get_urls_from_listings(soup):
 
 # targeting the css selectors
 def scrape_data(soup):
-    """Scrape all fields from a single property detail page."""
 
     # title
     title_tag = soup.select_one("h1.type-style-2")

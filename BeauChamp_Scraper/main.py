@@ -9,7 +9,6 @@ import pyodbc
 BASE_URL = "https://www.beauchampestates.com"
 SALE_URL = f"{BASE_URL}/london/luxury-properties-for-sale-in-london"
 RENT_URL = f"{BASE_URL}/london/luxury-properties-for-rent-in-london" 
-OUTPUT_FILE = "beauchamp_all.csv"
 
 # db config
 SERVER = "DESKTOP-9NI8UQ0"
@@ -17,7 +16,6 @@ DATABASE = "BeauChamp_DB"
 CONN_STR = f"DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={SERVER};DATABASE={DATABASE};Trusted_Connection=yes;"
 
 # db 
-
 def get_connection():
     return pyodbc.connect(CONN_STR)
 
@@ -37,7 +35,9 @@ def create_table(conn):
             sqft        NVARCHAR(50),
             url         NVARCHAR(1000),
             type        NVARCHAR(10),
-            contact     NVARCHAR(100),
+            phone       NVARCHAR(100),
+            whatsapp    NVARCHAR(100),
+            email       NVARCHAR(100),
             image_url   NVARCHAR(1000)
         )
     """)
@@ -52,8 +52,8 @@ def insert_listing(conn, listing):
     cursor = conn.cursor()
     cursor.execute("""
         INSERT INTO properties
-            (title, address, price, beds, baths, sqft, url, type, contact, image_url)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            (title, address, price, beds, baths, sqft, url, type, phone, whatsapp, email, image_url)
+        VALUES (?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?, ?)
     """,
         listing["title"],
         listing["address"],
@@ -63,7 +63,9 @@ def insert_listing(conn, listing):
         listing["sqft"],
         listing["url"],
         listing["type"],
-        listing["contact"],
+        listing["phone"],
+        listing["whatsapp"],
+        listing["email"],
         listing["image_url"],
     )
     conn.commit()
@@ -94,81 +96,112 @@ def get_detail_soup(driver, url):
     time.sleep(3)
     return BeautifulSoup(driver.page_source, "html.parser")
 
-# targeting the css selectors
-def scrape_data(soup, listing_type):
-    cards = soup.select("article")
-    listings = []
 
-    for card in cards:
-        # Title & URL
-        link_tag = card.select_one("a.expand-interaction__action")
-        title = link_tag.get_text(strip=True) if link_tag else "N/A"
-        url = (BASE_URL + link_tag["href"]) if link_tag and link_tag.get("href") else "N/A"
-
-        if url == "N/A":
-            continue
-
-        # Address
-        address_tag = card.select_one("p.block")
-        address = address_tag.get_text(strip=True) if address_tag else "N/A"
-
-        # Price
-        price = "N/A"
-        for div in card.select("div"):
-            text = div.get_text(strip=True)
-            if text.startswith("£"):
-                price = text
-                break
-
-        # Beds, Baths, Sqft
-        beds = baths = sqft = "N/A"
-        for tag in card.select("p, span"):
-            text = tag.get_text(strip=True)
-            if "bed" in text and beds == "N/A":
-                beds = text
-            elif "bath" in text and baths == "N/A":
-                baths = text
-            elif "sqft" in text and sqft == "N/A":
-                sqft = text
-
-        listings.append({
-            "title": title,
-            "address": address,
-            "price": price,
-            "beds": beds,
-            "baths": baths,
-            "sqft": sqft,
-            "url": url,
-            "type": listing_type,
-            "contact": "N/A",
-            "image_url": "N/A",
-        })
-
-        # deduplicate by url
+def get_urls_from_listings(soup):
+    """Grab only the property urls from the main listings page."""
+    urls = []
     seen = set()
-    unique = []
-    for item in listings:
-        if item["url"] not in seen:
-            seen.add(item["url"])
-            unique.append(item)
-    
-    return unique
 
-# scraping single property page 
-def scrape_detail(soup):
-    # contact number
-    contact = "N/A"
-    tel_tag = soup.select_one("a[href^='tel:']")
-    if tel_tag:
-        contact = tel_tag.get_text(strip=True).replace("Tel: ", "")
+    cards = soup.select("article")
+    for card in cards:
+        link_tag = card.select_one("a.expand-interaction__action")
+        if not link_tag or not link_tag.get("href"):
+            continue
+        url = BASE_URL + link_tag["href"]
+        if url not in seen:
+            seen.add(url)
+            urls.append(url)
 
-    # first image url
+    return urls
+
+# targeting the css selectors
+def scrape_data(soup):
+    """Scrape all fields from a single property detail page."""
+
+    # title
+    title_tag = soup.select_one("h1.type-style-2")
+    title = title_tag.get_text(strip=True) if title_tag else "N/A"
+
+    # address
+    address_tag = soup.select_one("p.type-style-eyebrow.mb-8")
+    address = address_tag.get_text(strip=True) if address_tag else "N/A"
+
+    # price
+    price_tag = soup.select_one("p.type-style-2")
+    price = price_tag.get_text(strip=True) if price_tag else "N/A"
+
+     # beds, baths, sqft — all in same grid structure
+    beds = baths = sqft = "N/A"
+    grid_divs = soup.select("div.grid p.type-style-eyebrow")
+    for label_tag in grid_divs:
+        label = label_tag.get_text(strip=True).lower()
+        value_tag = label_tag.find_next_sibling("p")
+        value = value_tag.get_text(strip=True) if value_tag else "N/A"
+        if "bed" in label:
+            beds = value
+        elif "bath" in label:
+            baths = value
+        elif "int" in label:
+            sqft = value
+
+    # phone
+    phone = "N/A"
+    phone_tag = soup.select_one("a[href^='tel:']")
+    if phone_tag:
+        phone = phone_tag.get_text(strip=True).replace("Tel:", "").strip() if phone else "N/A"
+
+    # whatsapp
+    whatsapp = "N/A"
+    wa_tag = soup.select_one("a[href^='https://wa.me/+']")
+    if wa_tag:
+        span = wa_tag.select_one("span")
+        whatsapp = span.get_text(strip=True).replace("Whatsapp:", "").strip() if span else "N/A"
+
+    # email
+    email = "N/A"
+    email_tag = soup.select_one("a[href^='mailto:']")
+    if email_tag:
+        email = email_tag["href"].replace("mailto:", "")
+
+    # image
     image_url = "N/A"
-    img_tag = soup.select_one("img[src*='admin.beauchampestates.com']")
+    img_tag = soup.select_one("img.w-full[src*='admin.beauchampestates.com']")
     if img_tag:
         image_url = img_tag["src"]
 
-    return contact, image_url
+    return {
+        "title": title,
+        "address": address,
+        "price": price,
+        "beds": beds,
+        "baths": baths,
+        "sqft": sqft,
+        "phone": phone,
+        "whatsapp": whatsapp,
+        "email": email,
+        "image_url": image_url,
+    }
+
+def process_listings(driver, conn, listings_url, listing_type):
+    print(f"\nLoading {listing_type} listings page...")
+    soup = get_soup(driver, listings_url)
+    urls = get_urls_from_listings(soup)
+    print(f"Found {len(urls)} {listing_type} urls. Now visiting each one...")
+
+    for i, url in enumerate(urls):
+        print(f"[{i+1}/{len(urls)}] {url}")
+        detail_soup = get_detail_soup(driver, url)
+        data = scrape_data(detail_soup)
+
+        listing = {
+            **data,
+            "url": url,
+            "type": listing_type,
+        }
+
+        insert_listing(conn, listing)
+        print(f"Saved: {listing['title']}")
+        time.sleep(1)
 
 
 # main
@@ -176,42 +209,15 @@ def main():
     print("Connecting to SQL Server...")
     conn = get_connection()
     create_table(conn)
-    driver = get_driver()
-    print("Starting Selenium driver...")    
 
+    print("Starting Selenium driver...")
+    driver = get_driver()
 
     try:
-        # FOR SALE 
-        print("Loading sale listings...")
-        soup = get_soup(driver, SALE_URL)
-        sale_listings = scrape_data(soup, listing_type="sale")
-        print(f"Found {len(sale_listings)} sale listings.")
-
-        # FOR RENT 
-        print("Loading rent listings...")
-        soup = get_soup(driver, RENT_URL)
-        rent_listings = scrape_data(soup, listing_type="rent")
-        print(f"Found {len(rent_listings)} rent listings.")
-
-        all_listings = sale_listings + rent_listings
-        print(f"Total: {len(all_listings)} listings. Now visiting detail pages...")
-
-        # DETAIL PAGES
-        for i, listing in enumerate(all_listings):
-            print(f"[{i+1}/{len(all_listings)}] {listing['url']}")
-            detail_soup = get_detail_soup(driver, listing["url"])
-            contact, image_url = scrape_detail(detail_soup)
-            listing["contact"] = contact
-            listing["image_url"] = image_url
-
-            insert_listing(conn, listing)
-            time.sleep(1)  # polite delay between requests
-
-        print(f"Done. {len(all_listings)} listings inserted into BeauChamp_DB.")
-
+        process_listings(driver, conn, SALE_URL, "sale")
+        process_listings(driver, conn, RENT_URL, "rent")
     finally:
         driver.quit()
         conn.close()
-
 if __name__ == "__main__":
     main()

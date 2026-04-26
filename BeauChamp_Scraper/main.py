@@ -80,7 +80,7 @@ def scroll_page(driver):
     for _ in range(40):
         driver.execute_script("window.scrollBy(0, 500)")
         time.sleep(1)
-    time.sleep(3)
+    time.sleep(3)   
     print("Scrolling done.")
 
 # parcing main page
